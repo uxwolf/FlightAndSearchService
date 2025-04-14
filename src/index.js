@@ -1,7 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
+const { City } = require("./models/index");
 const { PORT } = require('./config/serverConfig');
+
 
 const setupAndStartServer = async ()=>{
 

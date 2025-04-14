@@ -1,4 +1,5 @@
 'use strict';
+const { unique } = require('drizzle-orm/mysql-core');
 const {
   Model
 } = require('sequelize');
@@ -14,7 +15,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   City.init({
-    name: DataTypes.STRING
+    name: {type: DataTypes.STRING, 
+      unique:true,
+      allowNull:false
+    }
   }, {
     sequelize,
     modelName: 'City',
