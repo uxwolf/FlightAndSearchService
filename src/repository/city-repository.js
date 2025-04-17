@@ -1,7 +1,7 @@
 const { City } = require("../models/index");
 
 class CityRepository{
-    
+
     async createCity({ name }){
         try {
             const City = await City.create({ name });
@@ -19,6 +19,7 @@ class CityRepository{
                     id : cityId
                 }
             })
+            return true;
         }
         catch(error){
             throw {error};
