@@ -4,8 +4,8 @@ class CityRepository{
 
     async createCity({ name }){
         try {
-            const City = await City.create({ name });
-            return City;
+            const city = await City.create({ name });
+            return city;
         }
         catch(error){
             throw {error};
@@ -42,7 +42,7 @@ class CityRepository{
 
     async getCity(cityId){
         try{
-            const city = City.findbyPK(cityId);
+            const city = await City.findbyPK(cityId);
             return city;
         }catch(error){
             console.log("something wrong happended in repository layer");

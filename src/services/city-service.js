@@ -8,7 +8,7 @@ class CityService {
 
     async createCity(data){
         try {
-            const city = await this.cityRepository.createCity(data);
+            const city = await this.CityRepository.createCity(data);
             return city;
         }
         catch(error){
@@ -19,7 +19,7 @@ class CityService {
 
     async deleteCity(cityId){
         try {
-            const response = this.cityRepository.deleteCity(cityId);
+            const response = this.CityRepository.deleteCity(cityId);
             return response;
         }
         catch(error){
@@ -30,7 +30,7 @@ class CityService {
 
     async updateCity(cityId,data){
         try{
-            const city = this.cityRepository.updateCity(cityId,data)
+            const city = this.CityRepository.updateCity(cityId,data)
             return city;
         }catch(error){
             console.log("something wrong happended in repository layer");
@@ -40,7 +40,7 @@ class CityService {
 
     async getCity(cityId){
         try{
-            const city = this.cityRepository.getCity(cityId);
+            const city = this.CityRepository.getCity(cityId);
             return city;
         }catch(error){
             console.log("something wrong happended in repository layer");
@@ -48,3 +48,5 @@ class CityService {
         }
     }
 }
+
+module.exports = CityService;
