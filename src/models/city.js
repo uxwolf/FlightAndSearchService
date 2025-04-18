@@ -1,5 +1,5 @@
 'use strict';
-const { unique } = require('drizzle-orm/mysql-core');
+// const { unique } = require('drizzle-orm/mysql-core');
 const {
   Model
 } = require('sequelize');
@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
+
   City.init({
     name: {type: DataTypes.STRING, 
       unique:true,

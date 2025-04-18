@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const db = require('./models/index')
 
 const { City } = require("./models/index");
 const { PORT } = require('./config/serverConfig');
@@ -15,6 +16,7 @@ const setupAndStartServer = async ()=>{
 
     app.listen(PORT , async ()=>{
         console.log(`server started at port: ${PORT}`);
+        console.log(db.City.create);
     });
 }
 
