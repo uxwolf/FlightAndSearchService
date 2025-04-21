@@ -33,7 +33,7 @@ class CityService {
             const city = await this.CityRepository.updateCity(cityId,data)
             return city;
         }catch(error){
-            console.log("something wrong happended in repository layer");
+            console.log("something wrong happended in service layer");
             throw(error);
         }
     }
@@ -43,17 +43,17 @@ class CityService {
             const city = await this.CityRepository.getCity(cityId);
             return city;
         }catch(error){
-            console.log("something wrong happended in repository layer");
+            console.log("something wrong happended in service layer");
             throw(error);
         }
     }
-    async getAllCities(){
+    async getAllCities(filter){
         try {
-            const cities = await this.CityRepository.getAllCities();
+            const cities = await this.CityRepository.getAllCities({name : filter.name});
             return cities;
 
         } catch (error) {
-            console.log("something wrong happended in repository layer");
+            console.log("something wrong happended in service layer");
             throw(error);
             
         }
