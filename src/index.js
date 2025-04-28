@@ -19,9 +19,15 @@ const setupAndStartServer = async ()=>{
 
     app.listen(PORT , async ()=>{
         console.log(`server started at port: ${PORT}`);
-        if(process.env.SYNC_DB){
-            db.sequelize.sync({alter:true});
+        if (process.env.SYNC_DB) {
+            try {
+                await db.sequelize.sync();
+                console.log("Database synced successfully.");
+            } catch (error) {
+                console.error("Failed to sync DB:", error);
+            }
         }
+        
         // await Airplane.create({
         //     modelNumber: 'Bombardier CRJ'
         // })
